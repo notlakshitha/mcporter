@@ -590,7 +590,8 @@ function resolveExplicitCallServer(args: readonly string[]): string | undefined 
     if (isHelpToken(token)) {
       return undefined;
     }
-    if (token === '--http-url' || token === '--stdio') {
+    const flag = token.split('=', 1)[0];
+    if (flag === '--http-url' || flag === '--sse' || flag === '--stdio') {
       return undefined;
     }
     if (token === '--server') {
